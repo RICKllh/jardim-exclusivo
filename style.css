@@ -1,0 +1,692 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Open+Sans:wght@400;600&family=Lora:ital,wght@0,400;0,500;1,400&display=swap');
+
+/* --- CSS GERAL E FUNDO --- */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'American Typewriter, serif', sans-serif;
+    background: radial-gradient(circle at center, #fdfbf7 0%, #ede0d4 100%);
+    color: #ff4848;
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+#site-container {
+    width: 100%;
+    max-width: 600px;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* --- AJUSTE DAS IMAGENS DO TOPO (HEADER) --- */
+
+/* 1. Preparamos o container do cabeçalho */
+.site-header {
+    position: relative; /* Isso é crucial: diz que as imagens absolutas dentro dele se alinham aqui */
+    padding-top: 150px; /* Criamos um espaço grande vazio acima do título onde as imagens vão flutuar */
+    text-align: center;
+    margin-bottom: 30px;
+    overflow: visible; /* Permite que as imagens grandes "vazem" para fora da área visível sem criar barra de rolagem */
+}
+
+/* Estilo do Título (Garantindo que ele fique na frente e centralizado) */
+.main-title {
+    position: relative;
+    z-index: 10; /* Z-index alto faz o texto ficar SEMPRE na frente das imagens decorativas */
+    margin: 0;
+    font-family: 'Playfair Display', serif; /* Mantendo a sua fonte charmosa */
+    text-transform: lowercase;
+    color: #694444;
+    font-size: 2.5rem;
+    line-height: 1.2;
+}
+
+.main-title span {
+    font-size: 1.5rem;
+    font-weight: normal;
+    color: #5d3123;
+}
+
+/* Estilo geral para as duas imagens decorativas do topo */
+.site-header img {
+    position: absolute; /* Faz a imagem flutuar, sem ocupar espaço no texto */
+    mix-blend-mode: multiply; /* Efeito que faz o fundo branco das imagens sumir e misturar com o bege */
+    pointer-events: none; /* Impede que as imagens atrapalhem cliques ou seleção de texto */
+    z-index: 1; /* Z-index baixo: elas ficam atrás do texto */
+    opacity: 0.9; /* Quase total visibilidade */
+}
+
+/* Ajuste específico da Imagem da Esquerda (Flor) */
+.header-decor-left {
+    width: 380px; /* MUITO MAIOR como você pediu */
+    top: -50px; /* Flutuando no topo negativo (acima do cabeçalho) */
+    left: -120px; /* Saindo pela borda esquerda da tela */
+    transform: rotate(-15deg); /* Uma leve inclinação */
+}
+
+/* Ajuste específico da Imagem da Direita (Tangerina) */
+.header-decor-right {
+    width: 420px; /* MUITO MAIOR */
+    top: -80px; /* Flutuando ainda mais acima */
+    right: -150px; /* Saindo pela borda direita da tela */
+    transform: rotate(25deg); /* Outra inclinação */
+}
+
+/* --- AJUSTE EXTRA PARA CELULAR --- */
+/* (Adicione isso dentro da sua Media Query @media (max-width: 768px) se você já tiver uma, ou adicione o bloco todo abaixo) */
+@media (max-width: 768px) {
+    .site-header {
+        padding-top: 100px; /* Espaço menor no celular */
+    }
+    
+    .main-title {
+        font-size: 2rem; /* Título menor no celular */
+    }
+
+    /* Reduzimos um pouco o tamanho das imagens decorativas no celular para não cobrir a tela toda */
+    .header-decor-left {
+        width: 200px;
+        left: -60px;
+        top: -50px;
+    }
+    
+    .header-decor-right {
+        width: 200px;
+        right: -90px;
+        top: -30px;
+    }
+}
+
+/* --- ESTILOS DO CONTADOR --- */
+.counter-grid {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.time-box {
+    text-align: center;
+    min-width: 60px;
+}
+
+.time-box span {
+    display: block;
+    font-size: 2.2rem;
+    font-family: 'American Typewriter, serif', serif;
+    color: #4f332f;
+    font-weight: bold;
+    line-height: 1;
+}
+
+.time-box p {
+    margin: 5px 0 0 0;
+    font-size: 0.75rem;
+    color: #583e3b;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+.date-text {
+    font-size: 0.85rem;
+    color: #4e342e;
+    margin-top: 20px;
+    font-style: italic;
+    border-top: 1px solid rgba(161, 85, 42, 0.1);
+    padding-top: 10px;
+}
+
+/* --- ESTILOS DO TEXTO E MOTIVOS --- */
+.text-card p {
+    line-height: 1.8;
+    font-size: 1rem;
+    color: #4e342e;
+    text-align: justify;
+    margin-bottom: 15px;
+}
+
+.reasons-list {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+}
+
+.reasons-list li {
+    margin-bottom: 15px;
+    font-size: 1rem;
+    color: #4e342e;
+    position: relative;
+    padding-left: 25px;
+}
+
+.reasons-list li::before {
+    content: '✿';
+    color: #d84315;
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 1.2rem;
+}
+
+.card-decoration {
+    width: 120px;
+    display: block;
+    margin: 0 auto 15px auto;
+    mix-blend-mode: multiply;
+    border-radius: 10px;
+}
+
+/* --- ESTILOS DE NOSSAS NOTAS --- */
+.card-notas h2 {
+    text-transform: lowercase;
+    font-family: 'Playfair Display', serif;
+    color: #a1552a;
+    margin-bottom: 20px;
+}
+
+/* Caixa arredondada por trás dos botões Rick/Iza */
+.author-selector {
+    display: flex;
+    background: rgba(235, 218, 195, 0.5); 
+    border-radius: 25px;
+    border: 1px solid rgba(161, 85, 42, 0.2);
+    margin-bottom: 15px;
+    padding: 3px; 
+}
+
+/* Botões individuais de escolha */
+.author-btn {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1rem;
+    color: #5c3a21;
+    transition: 0.3s;
+    border-radius: 22px; 
+}
+
+/* Quando o botão está selecionado */
+.author-btn.active {
+    background: #a1552a;
+    color: white;
+    font-weight: 600;
+}
+
+.note-input-area {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.note-input-area input {
+    flex: 1;
+    padding: 12px 15px;
+    border-radius: 12px;
+    border: 1px solid rgba(161, 85, 42, 0.3);
+    background: rgba(235, 218, 195, 0.4);
+    outline: none;
+    font-family: 'Open Sans', sans-serif;
+    color: #4e342e;
+}
+
+.btn-enviar {
+    background: #a1552a;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    padding: 0 20px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.notes-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Card individual de cada nota */
+.note-item {
+    background: rgba(235, 218, 195, 0.4);
+    border: 1px solid rgba(161, 85, 42, 0.2);
+    border-radius: 12px;
+    padding: 15px;
+    text-align: left;
+    position: relative;
+}
+
+.note-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+    font-size: 0.95rem;
+    font-weight: bold;
+    color: #a1552a;
+}
+
+.note-date {
+    font-weight: normal;
+    color: #8d6e63;
+    font-size: 0.8rem;
+}
+
+.note-text {
+    color: #4e342e;
+    font-size: 0.95rem;
+    line-height: 1.4;
+    margin: 0;
+    padding-bottom: 12px; /* Deixa um espacinho em baixo para o botão de apagar */
+}
+
+/* Botão de excluir a nota */
+.btn-delete-note {
+    position: absolute;
+    bottom: 10px;
+    right: 15px;
+    background: transparent;
+    border: none;
+    color: #d84315;
+    font-size: 0.75rem;
+    cursor: pointer;
+    opacity: 0.6;
+}
+
+.btn-delete-note:hover {
+    opacity: 1;
+    text-decoration: underline;
+}
+/* --- ESTILOS DA MÚSICA --- */
+.music-player-card {
+    padding: 15px 20px;
+    margin-bottom: 40px; /* Dá um espacinho no final da página */
+}
+
+.music-controls {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+#playBtn {
+    background: #d84315;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 45px; height: 45px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: flex; justify-content: center; align-items: center;
+    box-shadow: 0 4px 10px rgba(216, 67, 21, 0.3);
+}
+
+.music-info {
+    display: flex; flex-direction: column; text-align: left;
+}
+
+.music-title { font-weight: bold; color: #a1552a; font-family: 'Playfair Display', serif; font-size: 1.1rem;}
+.music-artist { font-size: 0.8rem; color: #5c3a21; }
+
+/* Aumentamos a largura para caberem duas colunas */
+#site-container {
+    width: 100%;
+    max-width: 900px; /* Era 600px */
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* --- A NOVA GRADE PARA OS CARDS --- */
+.content-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Duas colunas de tamanhos iguais */
+    gap: 20px;
+}
+
+/* Responsividade: se for tela de celular, volta para 1 coluna */
+@media (max-width: 768px) {
+    .content-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* --- ESTILO DOS CARDS (Efeito Iluminado/Vintage) --- */
+.card {
+    /* Fundo imitando papel envelhecido leve com gradiente */
+    background: linear-gradient(135deg, rgba(253, 246, 233, 0.95) 0%, rgba(235, 218, 195, 0.95) 100%);
+    border: 1.5px solid #d4af37; /* Borda dourada/marrom clara */
+    border-radius: 12px;
+    padding: 25px;
+    text-align: center;
+    /* Sombra externa sutil e brilho interno (inset) */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05), inset 0 0 20px rgba(255, 255, 255, 0.6);
+    position: relative;
+    overflow: hidden; /* Para as imagens de fundo não vazarem */
+}
+
+/* Para colocar aquelas folhas no fundo dos cards específicos (como na sua imagem), 
+   você vai precisar adicionar as imagens no CSS. Exemplo: */
+.card-counter {
+    background-image: url('fundo_contador.jpg');
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: multiply; /* Ajuda a mesclar com a cor de fundo */
+}
+
+/* --- NOVO PLAYER DE MÚSICA HORIZONTAL --- */
+.music-player-card {
+    padding: 15px 30px;
+    display: flex;
+    align-items: center;
+}
+
+.music-controls {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+.play-buttons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.skip-btn {
+    background: transparent;
+    border: none;
+    color: #a1552a;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+#playBtn {
+    background: #a1552a; /* Cor mais terrosa baseada na imagem */
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px; height: 40px;
+    font-size: 1rem;
+}
+
+.music-info {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.music-title { 
+    font-weight: 600; 
+    color: #5c3a21; 
+    font-family: 'Playfair Display', serif; 
+    font-size: 1rem;
+}
+
+/* Barras visuais do player */
+.progress-bar-container, .volume-bar {
+    width: 100%;
+    height: 4px;
+    background: rgba(161, 85, 42, 0.2);
+    border-radius: 2px;
+    position: relative;
+}
+
+.progress-bar {
+    width: 30%; /* Exemplo estático */
+    height: 100%;
+    background: #a1552a;
+    border-radius: 2px;
+}
+
+.volume-control {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 80px;
+}
+
+.volume-bar {
+    width: 100%;
+}
+
+/* --- FUNDO DO CONTADOR DE TEMPO --- */
+/* --- FUNDO DO CONTADOR ATUALIZADO --- */
+/* --- FUNDO DO CONTADOR COM DESFOQUE E NOVA IMAGEM --- */
+.card-contador {
+    position: relative;
+    background-color: transparent; 
+    overflow: hidden;
+    z-index: 1;
+}
+
+.card-contador::before {
+    content: "";
+    position: absolute;
+    top: -15px; left: -15px; right: -15px; bottom: -15px; /* Margem extra para o desfoque não vazar */
+    background-image: url('fundo_contador.jpg'); /* Nome da sua nova imagem */
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: soft-light; 
+    background-color: rgba(125, 125, 125, 0.711);
+    filter: blur(4px); /* Mantive o desfoque original que não atrapalha a leitura */
+    z-index: -1;
+}
+
+
+/* --- ESTILOS DO NOVO PLAYER DE MÚSICA --- */
+.progress-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    margin-top: 8px;
+    font-size: 0.8rem;
+    color: #5c3a21;
+}
+
+#progressBar {
+    flex-grow: 1;
+    cursor: pointer;
+    accent-color: #d84315; /* Cor da barrinha puxando pro tom de tangerina */
+}
+
+.volume-control {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-left: 15px;
+}
+
+#volumeBar {
+    width: 80px;
+    cursor: pointer;
+    accent-color: #d84315;
+} 
+
+/* --- IMAGENS LATERAIS DOS CARDS --- */
+.card-motivos, .card-texto {
+    position: relative;
+    /* O overflow: hidden já existe no seu .card, mas é ele que faz a imagem ser cortada certinho na borda! */
+}
+
+/* Imagem da direita (Por que eu te amo) */
+.img-direita {
+    position: absolute;
+    top: -10%;
+    right: -25%;
+    width: 250px;
+    mix-blend-mode: multiply; /* Faz o branco sumir */
+    opacity: 0.8; /* Deixa um pouquinho mais suave */
+    transform: rotate(15deg);
+    pointer-events: none; /* Impede que a imagem atrapalhe você de clicar ou selecionar textos */
+    z-index: 0;
+}
+
+/* Imagem da esquerda (Meu texto) */
+.img-esquerda {
+    position: absolute;
+    bottom: -15%;
+    left: -20%;
+    width: 280px;
+    mix-blend-mode: multiply;
+    opacity: 0.8;
+    transform: rotate(-25deg);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Garantindo que os textos fiquem sempre acima das imagens decorativas */
+.card-motivos h2, .reasons-list, 
+.card-texto h2, .card-texto p {
+    position: relative;
+    z-index: 1; 
+}
+
+/* --- LAYOUTS LADO A LADO SEM SOBREPOSIÇÃO --- */
+.card-motivos, .texto-com-imagem {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    text-align: left;
+}
+
+/* O flex: 1 garante que o texto ocupe o espaço restante de forma organizada */
+.texto-motivos, .textos {
+    flex: 1; 
+}
+
+/* Define um tamanho fixo para a imagem lateral para que o texto não a esmague */
+.img-lado-direita {
+    width: 140px; 
+    height: auto;
+    mix-blend-mode: multiply;
+    flex-shrink: 0; 
+}
+
+/* --- ATUALIZAÇÃO DA LISTA DE EMOJIS --- */
+/* Remova ou substitua as regras antigas .reasons-list li e ::before por estas: */
+.reasons-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.reasons-list li {
+    margin-bottom: 15px;
+    font-size: 1rem;
+    color: #4e342e;
+    padding-left: 0; /* Removemos o recuo antigo */
+}
+
+/* Esconde o ícone antigo de flor gerado pelo CSS para usarmos os emojis do HTML */
+.reasons-list li::before {
+    display: none; 
+}
+/* --- RESPONSIVIDADE PARA CELULARES --- */
+
+/* 1. Impede que o botão de play fique oval em qualquer tela */
+#playBtn {
+    flex-shrink: 0; 
+}
+
+@media (max-width: 768px) {
+    /* 2. Ajuste dos cards "Por que eu te amo" e "Tenho mania de você" */
+    .card-motivos, .texto-com-imagem {
+        flex-direction: column; /* Empilha o texto e a imagem (um em cima do outro) */
+        text-align: center;
+    }
+    
+    .img-lado-direita {
+        margin-top: 20px; /* Dá um respiro entre o texto e a tangerina */
+        width: 120px; /* Diminui um pouco a imagem para não roubar toda a tela */
+    }
+
+    .reasons-list li {
+        text-align: left; /* Garante que a lista de motivos continue fácil de ler */
+    }
+
+    /* 3. Ajuste do Player de Música no Celular */
+    .music-controls {
+        flex-direction: column; /* Empilha o botão de play, o progresso e o volume */
+        gap: 15px;
+    }
+
+    .music-info {
+        width: 100%;
+        align-items: center; /* Centraliza o nome da música e do artista */
+    }
+
+    .progress-container {
+        justify-content: center;
+    }
+
+    .volume-control {
+        width: 100%;
+        justify-content: center; /* Traz a barra de volume de volta para o meio da tela */
+        margin-left: 0;
+    }
+    
+    /* Ajuste na área de input das notas para não ficar apertado */
+    .note-input-area {
+        flex-direction: column;
+    }
+    
+    .btn-enviar {
+        padding: 12px;
+    }
+}
+
+/* --- ESTILOS DOS TÍTULOS DOS CARDS PADRONIZADOS --- */
+.card h2 {
+    font-family: 'Playfair Display', serif;
+    color: #4e342e; /* Cor padronizada */
+    font-size: 1.5rem;
+    margin-top: 0;
+    margin-bottom: 10px;
+    text-transform: lowercase; /* Essa é a propriedade que deixa tudo minúsculo igual às notas */
+}
+
+/* --- ESTILOS DOS TEXTOS DOS CARDS (PROFISSIONAL E ELEGANTE) --- */
+.text-card p, .reasons-list li {
+    font-family: 'Lora', serif; /* Nova fonte com estilo de carta/livro */
+    font-size: 1.15rem; /* Textos maiores e mais legíveis */
+    line-height: 1.8; /* Espaço entre as linhas para leitura confortável */
+    color: #4e342e;
+    text-align: justify; /* Justificado no computador fica ótimo */
+    margin-bottom: 20px; /* Espaço entre os parágrafos */
+}
+
+.reasons-list {
+    padding-right: 15px; /* Para o texto não grudar na imagem da direita no PC */
+}
+
+.reasons-list li {
+    padding-left: 0; /* Remove sobras de recuos antigos */
+}
+
+/* ... seus outros códigos de celular continuam aqui em cima ... */
+
+    /* Correção profissional de alinhamento de texto para celular */
+    .text-card p, .reasons-list li {
+        font-size: 1.1rem; /* Um pouco menor no celular para caber bem, mas ainda grande */
+        text-align: left; /* FIM DOS BURACOS BRANCOS: Alinhamento à esquerda no celular */
+        padding: 0 5px; /* Um leve respiro nas laterais */
+    }
+    
+    .reasons-list {
+        padding-right: 0; /* Remove aquele respiro do PC para ganhar espaço na tela pequena */
+    }

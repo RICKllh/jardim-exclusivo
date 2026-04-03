@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nosso Jardim Exclusivo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="site-container">
+
+        <header class="site-header">
+        <img src="flor.jpg" alt="Decoração de Flores de Tangerina" class="header-decor-left">
+        
+        <h1 class="main-title">jardim exclusivo<br><span>de Iza e Rick</span></h1>
+        
+        <img src="tangerina1.jpg" alt="Decoração de Tangerina Inteira" class="header-decor-right">
+    </header>
+
+        <div class="card">
+           <div class="card card-contador">
+            <h2>Contador de Tempo Juntos</h2>
+            <div class="counter-grid">
+                <div class="time-box">
+                    <span id="meses">0</span>
+                    <p>Meses</p>
+                </div>
+                <div class="time-box">
+                    <span id="dias">0</span>
+                    <p>Dias</p>
+                </div>
+                <div class="time-box">
+                    <span id="horas">0</span>
+                    <p>Horas</p>
+                </div>
+                <div class="time-box">
+                    <span id="segundos">0</span>
+                    <p>Segundos</p>
+                </div>
+            </div>
+            <p class="date-text">Desde 23 de Junho de 2025</p>
+        </div>
+
+        <div class="card card-motivos">
+            <div class="texto-motivos">
+                <h2>Por que eu te amo</h2>
+                <ul class="reasons-list">
+                    <li>🍂 Pela forma como o seu sorriso e o seu olhar têm o poder de iluminar qualquer momento do meu dia.</li>
+                    <li>🍊 Pela sensação inebriante e pela paz que eu sinto quando estou imerso na sua presença.</li>
+                    <li>🌼 Porque cada detalhe seu, até os movimentos mais sutis, formam a pessoa mais fascinante que eu já conheci.</li>
+                </ul>
+            </div>
+            <img src="tangerina2.jpg" alt="Tangerina Decorativa" class="img-lado-direita">
+        </div>
+
+        <div class="card text-card">
+            <img src="flor.jpg" alt="Flores de Tangerina" class="card-decoration">
+            <h2>Tenho Mania de Você</h2>
+            
+            <div class="texto-com-imagem">
+                <div class="textos">
+                    <p>Não sei o que pensar sobre isso... Às vezes me sinto quase errado por querer tanto, mas é algo ardente. Eu penso no seu toque, no quão delicado deve ser perto do meu. Beleza pura, uma arte viva, uma expressão nunca antes vista, trazendo sentimentos únicos para mim.</p>
+                    <p>Quero sentir de todas as formas a leveza do seu cabelo ao balançar, reparar em cada movimento da sua boca ao falar, ao sorrir. Observar o brilho dos seus olhos quando você sorri, quando você me olha. Sentir o calor do seu corpo... só o calor do seu corpo já é algo inebriante para minha mente. Sua presença, mesmo em meus sonhos lúcidos, já é o suficiente para me enlouquecer.</p>
+                    <p>Talvez eu seja louco, mas não ligo, pois quero — e com sua permissão poderei, de fato, sentir a ti. Sentir seus olhos nos meus, seu sorriso, os mínimos e lindos movimentos que seu cabelo faz a cada instante.</p>
+                    <p>Eu já sinto algo por você que me faz ficar sem ar, que me faz delirar só de pensar em nós, que me faz rever áudios antigos, que me faz querer ouvir sua voz sem parar. Tenho mania de você.</p>
+                </div>
+            </div>
+        </div>
+        <div class="card card-notas">
+            <h2>nossas notas 💌</h2>
+            
+            <div class="author-selector">
+                <button id="btn-rick" class="author-btn active" onclick="selectAuthor('Rick')">Rick 🧡</button>
+                <button id="btn-iza" class="author-btn" onclick="selectAuthor('Iza')">Iza 🌸</button>
+            </div>
+
+            <div class="note-input-area">
+                <input type="text" id="noteInput" placeholder="Escreva uma nota...">
+                <button class="btn-enviar" onclick="addNote()">Enviar</button>
+            </div>
+
+            <div id="notesContainer" class="notes-list">
+                </div>
+        </div>
+
+        <div class="card music-player-card">
+            <audio id="bgMusic" loop>
+                <source src="flor_de_tangerina.mp3" type="audio/mpeg">
+            </audio>
+            
+            <div class="music-controls">
+                <button id="playBtn" onclick="toggleMusic()">▶</button>
+                
+                <div class="music-info">
+                    <span class="music-title">Flor de Tangerina</span>
+                    <span class="music-artist">Alceu Valença (Velho Chico)</span>
+                    
+                    <div class="progress-container">
+                        <span id="currentTime">0:00</span>
+                        <input type="range" id="progressBar" value="0" max="100">
+                        <span id="durationTime">0:00</span>
+                    </div>
+                </div>
+
+                <div class="volume-control">
+                    <span>🔊</span>
+                    <input type="range" id="volumeBar" min="0" max="1" step="0.01" value="1">
+                </div>
+            </div>
+        </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
